@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16/06/2019, 01:57:13 PM
+    Author     : sapc_
+*/
+
+body {
+    padding-bottom: 0;
+    font-size: 13px;
+    color: #393939;
+    line-height: 1.42857143;
+}
+
+.navbar-portal {
+    background: #22c397;
+    border-bottom: 1px solid #a09696;
+    border-radius: 0;
+}
+
+.navbar-header > .navbar-brand {
+    color: white !important;
+}
+.navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-nav>li>a:hover {
+    color: #141415;
+}
+
+.panel-body {
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.panel-list {
+    border-color: #9c9c9c;
+}
+
+.panel-list > .panel-heading {
+    color: #f0f7f0;
+    background-color: #4c4c4e;
+    border-color: #141415;
+}
+
+.blog-header { 
+    background: aliceblue;
+    padding: 5px;
+    padding-left: 25px;
+}
+
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color:  #fff;
+  background-clip: border-box;
+  border: 1px solid #d8c9c9;
+  margin: 10px;
+}
+
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 10px;
+}
+
+.card-title {
+  margin-bottom: 5px;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.card-link {
+    margin-left: 1px;
+}
+
+.card-header {
+  padding: 10px 10px;
+  margin-bottom: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #d8c9c9;
+}
+
+.card-img-top {
+    height: 150px; 
+    width: 50%; 
+    margin-left: 10px;
+    display: block;
+}

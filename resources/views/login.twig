@@ -1,0 +1,46 @@
+{% extends "layout.twig" %}
+
+{% block styles %}
+    <style>
+        body {
+            background: #eee !important;	
+        }
+
+        .wrapper {	
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .form-signin {
+            max-width: 380px;
+            padding: 15px 35px 45px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid rgba(0,0,0,0.1);  
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        
+        <form id="startLogin" class="form-signin" method="post" autocomplete="off">       
+            <h2 class="form-signin-heading">Inicio de session</h2>
+            <input type="text" id="username" class="form-control" name="username" placeholder="Usuario" required=""/>
+            <input type="password" id="password" class="form-control" name="password" placeholder="Password" required=""/>
+            <button class="btn btn-sm btn-success btn-block" type="submit">Login</button>   
+            <div id="msj"></div>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block scrips %}
+
+    <!-- Validate --> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/localization/messages_es.js"></script>
+    <!-- Custom -->
+    <script type="text/javascript" src="{{ 'resources/scripts/login.js' | baseUrl }}" ></script>
+
+{% endblock %}

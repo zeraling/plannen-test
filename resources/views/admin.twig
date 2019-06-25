@@ -1,0 +1,95 @@
+{% extends "layout.twig" %}
+
+{% block styles %}
+
+    <!-- datatable -->
+    <link type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+
+        <div class="row">
+            {%if listaProspecto %}
+                {%for listado in listaProspecto %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" alt="Perfil" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Nombre: {{ listado.nombre }} {{ listado.apellido }} <br>
+                                    Direccion: {{ listado.direccion }} <br>
+                                    Telefono: {{ listado.telefono  }}
+                                </p>
+                                <input type="hidden" id="customerId{{listado.customerId}}" data-estado="{{listado.estado}}" 
+                                       data-nombre="{{ listado.nombre }}"
+                                       data-apellido="{{ listado.apellido }}"
+                                       data-direccion="{{ listado.direccion }}"
+                                       data-telefono="{{ listado.telefono  }}"
+                                       />
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary btnView">View</button>
+                                        <button  type="button" class="btn btn-sm btn-outline-secondary btnEdit" data-id="{{ listado.customerId }}">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {%endfor%}
+            {%endif%}
+        </div>
+
+        <div id="opLogs" class="row hide">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Log</div>
+                <div class="panel-body">
+                    <pre id="logEvent"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dialog-edit" title="Edicion" style="display: none">
+        <input type="hidden" id="txtCustomerId"/>
+        <table class="table">
+            <tr>
+                <td>Nombre</td>
+                <td>
+                    <input id="txtNombre" class="form-control" placeholder="Nombre" onkeypress="return APP.event.soloLetras(event)" >
+                </td>
+            </tr>
+            <tr>
+                <td>Apellido</td>
+                <td>
+                    <input id="txtApellido" class="form-control" placeholder="Apellido" onkeypress="return APP.event.soloLetras(event)" >
+                </td>
+            </tr>
+            <tr>
+                <td>Direccion</td>
+                <td>
+                    <input id="txtDireccion" class="form-control" placeholder="Direccion">
+                </td>
+            </tr>
+            <tr>
+                <td>Telefono</td>
+                <td>
+                    <input id="txtTelefono" class="form-control" placeholder="Telefono">
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
+{% block scrips %}
+
+    <!-- datatable --> 
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.jqueryui.min.js"></script>
+
+    <!-- Custom -->
+    <script type="text/javascript" src="{{ 'resources/scripts/admin.js' | baseUrl }}" ></script>
+
+{% endblock %}
